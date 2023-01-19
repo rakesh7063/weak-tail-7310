@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
-@Entity
+//@Entity
 public class Order {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private int orderId;
 
     private LocalDate orderDate;
@@ -16,13 +16,13 @@ public class Order {
 
     private Double total;
 
-    @OneToOne(cascade = CascadeType.ALL)
+//    @OneToOne(cascade = CascadeType.ALL)
     private Customer customer;
 
-    @ElementCollection
+//    @ElementCollection
     private List<ProductDTO> productList;
 
-    @OneToOne
+//    @OneToOne
     private Address address;
 
     public Order() {
