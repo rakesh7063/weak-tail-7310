@@ -1,6 +1,6 @@
 package com.desidukaan.exception;
 
-public class ProductException extends Exception {
+public class ProductException extends RuntimeException {
 	
 	public ProductException() {
 		
