@@ -3,46 +3,43 @@ package com.desidukaan.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
-//@Entity
+
+@Entity
 public class Order {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int orderId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String orderId;
 
     private LocalDate orderDate;
 
     private String orderStatus;
 
-    private Double total;
-
-//    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private Customer customer;
 
-//    @ElementCollection
+    @ElementCollection
     private List<ProductDTO> productList;
 
-//    @OneToOne
+    @OneToOne
     private Address address;
 
     public Order() {
     }
 
-    public Order(int orderId, LocalDate orderDate, String orderStatus, Double total, Customer customer, List<ProductDTO> productList, Address address) {
+    public Order(String orderId, LocalDate orderDate, String orderStatus, Customer customer, List<ProductDTO> productList, Address address) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.orderStatus = orderStatus;
-        this.total = total;
         this.customer = customer;
         this.productList = productList;
         this.address = address;
     }
 
-    public int getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
@@ -60,14 +57,6 @@ public class Order {
 
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
-    }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
     }
 
     public Customer getCustomer() {
@@ -100,7 +89,6 @@ public class Order {
                 "orderId=" + orderId +
                 ", orderDate=" + orderDate +
                 ", orderStatus='" + orderStatus + '\'' +
-                ", total=" + total +
                 ", customer=" + customer +
                 ", productList=" + productList +
                 ", address=" + address +
