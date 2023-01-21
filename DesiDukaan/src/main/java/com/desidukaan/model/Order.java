@@ -8,7 +8,7 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String orderId;
+    private Integer orderId;
 
     private LocalDate orderDate;
 
@@ -26,7 +26,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(String orderId, LocalDate orderDate, String orderStatus, Customer customer, List<ProductDTO> productList, Address address) {
+    public Order(Integer orderId, LocalDate orderDate, String orderStatus, Customer customer, List<ProductDTO> productList, Address address) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.orderStatus = orderStatus;
@@ -35,11 +35,11 @@ public class Order {
         this.address = address;
     }
 
-    public String getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 

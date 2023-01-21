@@ -18,6 +18,6 @@ public interface OrderService {
 
     public List<Order> viewAllOrdersByLocation(String loc);
 
-    public List<Order> viewAllOrdersByUserId(String userid);
+    public List<Order> viewAllOrdersByUserId(int userid);
 
 }

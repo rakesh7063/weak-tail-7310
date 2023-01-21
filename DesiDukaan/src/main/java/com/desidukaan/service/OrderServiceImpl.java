@@ -55,12 +55,25 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public List<Order> viewAllOrdersByLocation(String loc) {
 
-        return null;
+        List<Order> list= orderDao.getOrderByCity(loc);
+
+        if( list.size() < 1) {
+            throw new OrderException("No order found with this userId.");
+        }
+        return list;
+
     }
 
     @Override
-    public List<Order> viewAllOrdersByUserId(String userid) {
+    public List<Order> viewAllOrdersByUserId(int userid) {
 
-        return null;
+        List<Order> list = orderDao.getOrdersByUserId(userid);
+
+        if( list.size() < 1) {
+            throw new OrderException("No order found with this userId.");
+        }
+
+        return list;
+
     }
 }
