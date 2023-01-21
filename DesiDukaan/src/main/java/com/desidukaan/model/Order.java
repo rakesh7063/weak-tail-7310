@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
+//@Entity
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +20,7 @@ public class Order {
     @ElementCollection
     private List<ProductDTO> productList;
 
-    @OneToOne
+//    @OneToOne
     private Address address;
 
     public Order() {
