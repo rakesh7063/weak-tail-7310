@@ -1,6 +1,6 @@
 package com.desidukaan.exception;
 
-public class OrderException extends Exception{
+public class OrderException extends RuntimeException{
     public OrderException() {
     }
 
