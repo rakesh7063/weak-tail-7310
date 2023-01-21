@@ -11,7 +11,7 @@ import com.desidukaan.model.Product;
 @Repository
 public interface ProductDao extends JpaRepository<Product, Integer> {
 	
-	@Query("select p from Product p where p.category.categoryname = ?1")
+	@Query("select p from Product p where p.category.categoryName = ?1")
 	public List<Product> viewByCategoryName(String cName);
 	
 }

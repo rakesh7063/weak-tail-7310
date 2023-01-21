@@ -2,6 +2,7 @@ package com.desidukaan.model;
 
 public class Category {
 	
+	
 	private Integer categoryId;
 	
 	private String categoryName;
