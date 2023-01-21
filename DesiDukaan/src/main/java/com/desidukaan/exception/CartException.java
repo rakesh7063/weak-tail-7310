@@ -1,6 +1,6 @@
 package com.desidukaan.exception;
 
-public class CartException extends Exception{
+public class CartException extends RuntimeException{
     public CartException() {
     }
 

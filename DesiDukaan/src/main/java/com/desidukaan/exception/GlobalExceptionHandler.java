@@ -39,7 +39,15 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(er,HttpStatus.BAD_REQUEST);
 		
 	}
-	
+
+	@ExceptionHandler(CartException.class)
+	public ResponseEntity<MyErrorDetails> cartExceptionHandle(CartException ie , WebRequest req){
+
+		MyErrorDetails er = new MyErrorDetails(LocalDateTime.now(), ie.getMessage(), req.getDescription(false));
+
+		return new ResponseEntity<>(er,HttpStatus.BAD_REQUEST);
+	}
+
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<MyErrorDetails> anyExceptionHandle(Exception e,WebRequest w){
 		MyErrorDetails err=new MyErrorDetails(LocalDateTime.now(),e.getMessage(),w.getDescription(false));

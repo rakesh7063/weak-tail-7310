@@ -53,12 +53,8 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public List<Order> viewAllOrders(LocalDate date) {
-        return null;
-    }
-
-    @Override
     public List<Order> viewAllOrdersByLocation(String loc) {
+
         return null;
     }
 
