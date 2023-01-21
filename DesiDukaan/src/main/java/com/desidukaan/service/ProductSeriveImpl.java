@@ -4,18 +4,20 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.desidukaan.exception.ProductException;
 import com.desidukaan.model.Product;
 import com.desidukaan.repository.ProductDao;
 
+@Service
 public class ProductSeriveImpl implements ProductService {
 
 	@Autowired
 	private ProductDao pdao;
 	
 	@Override
-	public List<Product> viewAllProduct() {
+	public List<Product> viewAllProduct() throws ProductException {
 		List<Product> products = pdao.findAll();
 		if(products.size() > 0) {
 			return products;
@@ -26,13 +28,13 @@ public class ProductSeriveImpl implements ProductService {
 	}
 
 	@Override
-	public Product addProduct(Product product) {
+	public Product addProduct(Product product) throws ProductException {
 		Product prod = pdao.save(product);
 		return prod;
 	}
 
 	@Override
-	public Product updateProduct(Product product) {
+	public Product updateProduct(Product product) throws ProductException {
 		Optional<Product> opt = pdao.findById(product.getProductId());
 		if(opt.isPresent()) {
 			return pdao.save(product);
@@ -43,7 +45,7 @@ public class ProductSeriveImpl implements ProductService {
 	}
 
 	@Override
-	public Product viewProduct(Integer id) {
+	public Product viewProduct(Integer id) throws ProductException {
 		Optional<Product> opt = pdao.findById(id);
 		if(opt.isPresent()) {
 			return opt.get();
@@ -54,7 +56,7 @@ public class ProductSeriveImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> viewProductByCategory(String cName) {
+	public List<Product> viewProductByCategory(String cName) throws ProductException {
 		List<Product> products = pdao.viewByCategoryName(cName);
 		if(products.size() > 0) {
 			return products;
@@ -63,7 +65,7 @@ public class ProductSeriveImpl implements ProductService {
 	}
 
 	@Override
-	public Product removeProduct(Integer pId) {
+	public Product removeProduct(Integer pId) throws ProductException {
 		Product prod = pdao.findById(pId).orElseThrow(()-> new ProductException("Product not availabe with product id "+pId));
 		pdao.delete(prod);
 		return prod;
