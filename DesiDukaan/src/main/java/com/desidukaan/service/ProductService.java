@@ -7,9 +7,9 @@ import com.desidukaan.model.Product;
 
 public interface ProductService {
 	
-	public List<Product> viewAllProduct() throws ProductException;
-	
 	public Product addProduct(Product product) throws ProductException;
+	
+	public List<Product> viewAllProduct() throws ProductException;
 	
 	public Product updateProduct(Product product) throws ProductException;
 	

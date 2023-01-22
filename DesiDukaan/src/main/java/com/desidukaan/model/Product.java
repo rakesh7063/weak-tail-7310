@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -15,18 +16,23 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer productId;
 	
+	@NotNull
 	@Size(min = 5, max = 30, message = "Product name should have atleast 5 character")
 	private String productName;
 	
 	@Min(value = 1, message = "Please provide a valid price")
 	private double price;
 	
+	@NotNull
 	private String color;
 	
+	@NotNull
 	private String dimension;
 	
+	@NotNull
 	private String specification;
 	
+	@NotNull
 	private String manufacturer;
 	
 	@Min(value = 1, message = "Please provide a valid quantity")
