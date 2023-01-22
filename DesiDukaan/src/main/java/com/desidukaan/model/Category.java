@@ -1,10 +1,13 @@
 package com.desidukaan.model;
 
+import jakarta.validation.constraints.NotNull;
+
 public class Category {
 	
-	
+	@NotNull
 	private Integer categoryId;
 	
+	@NotNull
 	private String categoryName;
 	
 	public Category() {

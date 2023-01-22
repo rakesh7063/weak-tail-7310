@@ -25,18 +25,18 @@ public class ProductController {
 	@Autowired
 	private ProductService prodServ;
 	
-	@GetMapping("/products")
-	public ResponseEntity<List<Product>> viewAllProductsHandler() {
-		List<Product> products = prodServ.viewAllProduct();
-		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
-	}
-	
 	@PostMapping("/product")
 	public ResponseEntity<Product> addProductHandler(@Valid @RequestBody Product product) throws ProductException {
 		
 		Product addProd = prodServ.addProduct(product);
 		return new ResponseEntity<Product>(addProd, HttpStatus.CREATED);
 		
+	}
+	
+	@GetMapping("/products")
+	public ResponseEntity<List<Product>> viewAllProductsHandler() {
+		List<Product> products = prodServ.viewAllProduct();
+		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 	
 	@PutMapping("/product")
