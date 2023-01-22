@@ -22,14 +22,24 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(er,HttpStatus.BAD_REQUEST);
 		
 	}
-
-	@ExceptionHandler(OrderException.class)
-	public ResponseEntity<MyErrorDetails> orderExceptionHandle(OrderException ie , WebRequest req){
-
+	
+	@ExceptionHandler(CustonerException.class)
+public ResponseEntity<MyErrorDetails> customerExceptionHandle(CustonerException ie , WebRequest req){
+		
 		MyErrorDetails er = new MyErrorDetails(LocalDateTime.now(), ie.getMessage(), req.getDescription(false));
-
+		
 		return new ResponseEntity<>(er,HttpStatus.BAD_REQUEST);
+		
 	}
+	
+
+//	@ExceptionHandler(OrderException.class)
+//	public ResponseEntity<MyErrorDetails> orderExceptionHandle(OrderException ie , WebRequest req){
+//
+//		MyErrorDetails er = new MyErrorDetails(LocalDateTime.now(), ie.getMessage(), req.getDescription(false));
+//
+//		return new ResponseEntity<>(er,HttpStatus.BAD_REQUEST);
+//	}
 
 	@ExceptionHandler(LoginException.class)
 	public ResponseEntity<MyErrorDetails> loginExceptionHandle(LoginException ie , WebRequest req){
