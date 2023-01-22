@@ -1,6 +1,6 @@
 # Online Shopping Application API 
 
-This is a Collaborative project, we have built a rest API service for an Online Shopping Application with 5 Team members in around 5 days. This service provides users to register and login, view/add products, and add to cart & order.
+This is a Collaborative project, we have built a rest API service for an Online Shopping Application with 4 Team members in around 5 days. This service provides users to register and login, view/add products, and add to cart & order.
 
 ## Entity Relationship Diagram
 
